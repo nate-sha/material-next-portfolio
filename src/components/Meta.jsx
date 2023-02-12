@@ -2,14 +2,15 @@ import { useContext } from "react";
 import Head from "next/head";
 import PropTypes from "prop-types";
 
-import { SettingsContext } from "@/context/settingsContext";
+import { AppContext } from "@/context/AppContext";
 
 const Meta = ({ title }) => {
-  const { settings } = useContext(SettingsContext);
+  const { state } = useContext(AppContext);
+  const { name, description } = state.global;
   return (
     <Head>
-      <title>{`${settings.name} | ${title}`}</title>
-      <meta name="description" content={settings.description} />
+      <title>{`${name} | ${title}`}</title>
+      <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
     </Head>

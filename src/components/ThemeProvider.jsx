@@ -6,13 +6,13 @@ import {
   responsiveFontSizes,
 } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
-import { SettingsContext } from "@/context/settingsContext";
+import { AppContext } from "@/context/AppContext";
 
 export default function ThemeProvider({ children }) {
-  const { settings } = useContext(SettingsContext);
+  const { state } = useContext(AppContext);
   let theme = createTheme({
     palette: {
-      mode: settings.darkMode ? "dark" : "light",
+      mode: state.darkMode ? "dark" : "light",
       primary: {
         main: "#3f51b5",
       },

@@ -3,12 +3,12 @@ import { Box, IconButton } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
-import { SettingsContext } from "@/context/settingsContext";
+import { AppContext } from "@/context/AppContext";
 
 export default function ThemeModeSwitch() {
-  const { settings, setSettings } = useContext(SettingsContext);
+  const { state, dispatch } = useContext(AppContext);
   const toggleDarkMode = () => {
-    setSettings({ ...settings, darkMode: !settings.darkMode });
+    dispatch({ type: "TOGGLE_DARK_MODE" });
   };
   return (
     <Box>
@@ -19,7 +19,7 @@ export default function ThemeModeSwitch() {
           color: "white",
         }}
       >
-        {settings.darkMode ? <Brightness4Icon /> : <Brightness7Icon />}
+        {state.darkMode ? <Brightness4Icon /> : <Brightness7Icon />}
       </IconButton>
     </Box>
   );

@@ -1,11 +1,14 @@
 import Meta from "@/components/Meta";
+import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
+import Budget from "@/components/projects/budget/Budget";
+
 export default function Home() {
   return (
     <>
       <Meta title="Welcome" description="A welcome page" />
       <PageHeader title="Welcome" />
-      <h1>Hello</h1>
+      <Link href="/projects">Projects</Link>
     </>
   );
 }

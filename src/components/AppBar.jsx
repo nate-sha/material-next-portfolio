@@ -1,15 +1,24 @@
 import { useContext } from "react";
-import { AppBar as MuiAppBar, Toolbar, Typography } from "@mui/material";
-import { SettingsContext } from "@/context/settingsContext";
+import {
+  AppBar as MuiAppBar,
+  Toolbar,
+  Typography,
+  Link as MuiLink,
+} from "@mui/material";
+import { AppContext } from "@/context/AppContext";
 import ThemeModeSwitch from "./ThemeModeSwitch";
 
 export default function AppBar() {
-  const { settings } = useContext(SettingsContext);
+  const { state } = useContext(AppContext);
   return (
     <MuiAppBar component="nav">
       <Toolbar>
         <Typography
           variant="h6"
+          component={MuiLink}
+          href="/"
+          underline="none"
+          color="inherit"
           sx={{
             flexGrow: 1,
             // Transform the text to uppercase
@@ -18,7 +27,7 @@ export default function AppBar() {
             letterSpacing: "0.2em",
           }}
         >
-          {settings.name}
+          {state.global.name}
         </Typography>
         <ThemeModeSwitch />
       </Toolbar>
